@@ -1,6 +1,6 @@
 # Length of Stay (LOS) Forecasting
 
-This project involves developing a predictive model for length of stay (LOS) using a hospital dataset provided by Microsoft. The goal is to enable healthcare providers to allocate resources more efficiently and manage patient care effectively.
+This project involves developing a predictive model for length of stay (LOS) using MIMIC-IV. The MIMIC-IV dataset (Medical Information Mart for Intensive Care IV) is a publicly available dataset that contains comprehensive and de-identified health-related data for critical care patients. It is widely used in the medical and machine learning communities for research in healthcare, particularly in areas like predictive modeling, clinical decision support, and patient outcome analysis. The goal is to enable healthcare providers to allocate resources more efficiently and manage patient care effectively.
 
 ## 1. Problem Statement
 
