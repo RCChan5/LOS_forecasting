@@ -1,18 +1,71 @@
-# LOS_forecasting
-In this project, I develop a predictive model for length of stay (LOS) using the hospital dataset provided by Microsoft
+# Length of Stay (LOS) Forecasting
 
-## 1.1 Problem Statement
-The goal of this project is to develop a predictive model that would be used to predict patients who will likely stay seven or more days in the hospital. Accurate predictive models help healthcare providers in resource allocation and patient management. 
-## 1.2 Dataset
-Original Data set contained 100,000 patients with 28 features.The dataset used in this analysis contains information about patients, including medical history, number of previous admissions as well as various diagnostic codes and lab results.
-## 2.1 Data Cleaning
-The dataset was free of missing values. 
-## 2.2 Data Transformation
-After checking for missing values we then examined our variables to identify variables that would require some sort of transformation for our model. We decided to use an encoder to encode the gender variable along with standardizing our continuous laboratory measurements.
+This project involves developing a predictive model for length of stay (LOS) using a hospital dataset provided by Microsoft. The goal is to enable healthcare providers to allocate resources more efficiently and manage patient care effectively.
+
+## 1. Problem Statement
+
+### 1.1 Objective
+The primary objective of this project is to create a predictive model capable of identifying patients who are likely to stay in the hospital for seven or more days. Accurate predictions of LOS allow healthcare systems to optimize resource allocation, improve operational efficiency, and enhance patient outcomes.
+
+### 1.2 Dataset Overview
+The original dataset consists of 100,000 patient records and includes 28 features. It contains comprehensive information about patients, such as:
+- Medical history
+- Number of previous admissions
+- Diagnostic codes
+- Laboratory test results
+
+These features provide the foundation for building and validating predictive models for LOS.
+
+## 2. Data Preparation
+
+### 2.1 Data Cleaning
+The dataset was notably clean, containing no missing values. This eliminated the need for imputation or other data-filling techniques and allowed us to focus on feature engineering and modeling.
+
+### 2.2 Data Transformation
+To prepare the dataset for modeling, the following transformations were applied:
+- **Encoding categorical variables**: The gender variable was encoded to a numerical format to ensure compatibility with machine learning algorithms.
+- **Standardizing continuous variables**: Continuous laboratory measurements were standardized to ensure that all features were on a comparable scale, improving model convergence and performance.
+
 ## 3. Feature Engineering
- In this set of our model development we decided to create a new variable called “number_of_issues” that would represent the total number of medical conditions . By doing this we were able to reduce the number of features for our regressor by 11 features. In this step we also removed unnecessary features that were not important when it came to predicting the length of stay. Also in this step we create a binary variable to represent length of stay greater than 7 as this is what we will be using our remaining features to predict. 
-## 4. Model Building
-In this section, we run multiple ML models and we split and we use an 80% training and 20% testing split for our dataset. We considered adding a hold Each model is 5-fold cross-validated and a random search is run through each model type to explore and find the best hyperparameters. The models we used were Logistic Regression, SVM, Random Forest, and GBM.
 
-## 5 Results 
-We found the tree based methods were the best performing models given the data set since it is highly imbalanced. Using ROC-AUC we found that GBM performed the best.
+Feature engineering was conducted to refine the dataset and improve the predictive power of the model:
+
+- **Creation of the `number_of_issues` feature**:  
+  A new feature was derived to represent the total number of medical conditions a patient had. This helped to consolidate information and reduced the number of input features by 11, simplifying the model.
+- **Feature selection**:  
+  Unnecessary features that did not significantly contribute to predicting LOS were removed.
+- **Target variable transformation**:  
+  A binary target variable was created to represent whether a patient’s LOS was greater than 7 days. This binary classification approach aligns with the project objective.
+
+## 4. Model Development
+
+Multiple machine learning models were tested to identify the best-performing approach for LOS prediction. Key steps included:
+
+### 4.1 Data Splitting
+- The dataset was split into training (80%) and testing (20%) subsets to evaluate model performance.
+- A holdout validation set was considered to ensure robust evaluation.
+
+### 4.2 Cross-Validation and Hyperparameter Tuning
+- **5-Fold Cross-Validation**: This was employed to ensure model stability and prevent overfitting.
+- **Random Search**: Hyperparameters were tuned using random search for each model type, optimizing performance metrics.
+
+### 4.3 Models Tested
+The following models were explored:
+1. Logistic Regression
+2. Support Vector Machines (SVM)
+3. Random Forest
+4. Gradient Boosting Machine (GBM)
+
+## 5. Results
+
+### 5.1 Performance Evaluation
+Given the imbalanced nature of the dataset, tree-based methods outperformed other models due to their ability to handle complex feature interactions and class imbalance effectively. Evaluation metrics included:
+- **ROC-AUC Score**: This was used as the primary metric to assess model performance.
+
+### 5.2 Best Model
+- **Gradient Boosting Machine (GBM)**:  
+  GBM emerged as the best-performing model with the highest ROC-AUC score, demonstrating its ability to make accurate predictions even with an imbalanced dataset.
+
+## 6. Conclusion
+
+This project successfully developed a predictive model for hospital length of stay, providing actionable insights to improve healthcare management. By leveraging advanced machine learning techniques and rigorous evaluation, the GBM model offers a reliable tool for predicting extended patient stays, enabling better resource planning and patient care.
