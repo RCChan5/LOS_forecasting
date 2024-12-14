@@ -65,6 +65,24 @@ Given the imbalanced nature of the dataset, tree-based methods outperformed othe
 ### 5.2 Best Model
 - **Gradient Boosting Machine (GBM)**:  
   GBM emerged as the best-performing model with the highest ROC-AUC score, demonstrating its ability to make accurate predictions even with an imbalanced dataset.
+  
+### 5.3 Explainability with SHAP and LIME
+
+To enhance the interpretability of the best-performing model, we employed two popular explainability techniques:
+
+#### SHAP (SHapley Additive exPlanations)
+SHAP values were used to quantify the contribution of each feature to the model's predictions. This approach provided both global and local understanding of the model. Key insights included:
+
+- Features such as `number_of_issues` and specific lab results had the most significant impact on predictions.
+- The visualization of SHAP values helped identify critical thresholds and patterns in the data.
+
+#### LIME (Local Interpretable Model-agnostic Explanations)
+LIME was applied to create interpretable explanations for individual predictions. It was particularly useful in understanding why certain patients were predicted to have a Length of Stay (LOS) greater than 7 days. This technique allowed us to:
+
+- Validate the model’s behavior on edge cases.
+- Provide actionable insights to healthcare providers by highlighting specific features driving predictions.
+
+These explainability tools ensured that the GBM model’s predictions were transparent and trustworthy, making it easier for stakeholders to adopt and rely on the model in clinical settings.
 
 ## 6. Conclusion
 
